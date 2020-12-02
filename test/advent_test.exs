@@ -11,5 +11,6 @@ defmodule AdventTest do
     test "day 1, part 1", do: assert(Day1.part1_verify() == {{1504, 516}, 776_064})
     test "day 1, part 2", do: assert(Day1.part2_verify() == {{13, 317, 1690}, 6_964_490})
     test "day 2, part 1", do: assert(Day2.part1_verify() == 636)
+    test "day 2, part 2", do: assert(Day2.part2_verify() == 588)
   end
 end
