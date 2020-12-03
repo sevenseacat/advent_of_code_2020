@@ -35,7 +35,20 @@ defmodule Day3 do
     make_step(state, {new_row, new_col}, {right_step, down_step}, progress)
   end
 
+  @doc """
+  iex> Day3.part2("..##.......\\n#...#...#..\\n.#....#..#.\\n..#.#...#.#\\n.#...##..#.\\n..#.##.....\\n
+  ...>.#.#.#....#\\n.#........#\\n#.##...#...\\n#...##....#\\n.#..#...#.#")
+  336
+  """
   def part2(input) do
+    state = parse_input(input)
+
+    [{1, 1}, {3, 1}, {5, 1}, {7, 1}, {1, 2}]
+    |> Stream.map(fn {right, down} ->
+      make_step(state, {0, 0}, {right, down}, %{trees: 0, open: 0})
+    end)
+    |> Stream.map(fn result -> Map.get(result, :trees) end)
+    |> Enum.reduce(1, fn x, acc -> x * acc end)
   end
 
   @doc """
