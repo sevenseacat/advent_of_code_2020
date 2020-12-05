@@ -1,4 +1,6 @@
 defmodule Day5 do
+  use Advent.Day, no: 5
+
   def part1(input) do
     input
     |> Enum.map(&parse_pass/1)
@@ -37,9 +39,16 @@ defmodule Day5 do
     parse_val(rest, lower, higher, div(max - min, 2) + min + 1, max)
   end
 
-  def part2(_input) do
-    :ok
+  def part2(input) do
+    input
+    |> Stream.map(&parse_pass/1)
+    |> Stream.map(fn %{seat_id: seat_id} -> seat_id end)
+    |> Enum.sort()
+    |> find_gap
   end
+
+  defp find_gap([a, b | rest]) when a == b - 1, do: find_gap([b | rest])
+  defp find_gap([a | _rest]), do: a + 1
 
   def parse_input(input) do
     String.split(input, "\n", trim: true)

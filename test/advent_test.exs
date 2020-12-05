@@ -20,5 +20,6 @@ defmodule AdventTest do
     test "day 4, part 1", do: assert(Day4.part1_verify() == 226)
     test "day 4, part 2", do: assert(Day4.part2_verify() == 160)
     test "day 5, part 1", do: assert(Day5.part1_verify() == %{col: 0, row: 122, seat_id: 976})
+    test "day 5, part 2", do: assert(Day5.part2_verify() == 685)
   end
 end
