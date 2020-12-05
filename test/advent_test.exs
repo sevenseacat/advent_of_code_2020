@@ -7,6 +7,7 @@ defmodule AdventTest do
   doctest Day2
   doctest Day3
   doctest Day4
+  doctest Day5
 
   # Real solutions from the real problems with real input.
   describe "verification" do
@@ -18,5 +19,6 @@ defmodule AdventTest do
     test "day 3, part 2", do: assert(Day3.part2_verify() == 3_424_528_800)
     test "day 4, part 1", do: assert(Day4.part1_verify() == 226)
     test "day 4, part 2", do: assert(Day4.part2_verify() == 160)
+    test "day 5, part 1", do: assert(Day5.part1_verify() == %{col: 0, row: 122, seat_id: 976})
   end
 end
