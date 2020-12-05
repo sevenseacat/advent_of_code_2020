@@ -26,12 +26,28 @@ defmodule Advent.Day do
             "day #{unquote(day_no)}, part 1" => fn -> part1_verify() end,
             "day #{unquote(day_no)}, part 2" => fn -> part2_verify() end
           },
-          print: [benchmarking: false, configuration: false],
-          formatters: [{Benchee.Formatters.Console, comparison: false}]
+          benchee_config()
         )
 
         :ok
       end
+
+      def experiment(variants) do
+        variants
+        |> Enum.into(%{})
+        |> Benchee.run(benchee_config())
+
+        :ok
+      end
+
+      defdelegate benchee_config(), to: unquote(__MODULE__)
     end
+  end
+
+  def benchee_config do
+    [
+      print: [benchmarking: false, configuration: false],
+      formatters: [{Benchee.Formatters.Console, comparison: false}]
+    ]
   end
 end
