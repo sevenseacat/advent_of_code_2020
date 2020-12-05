@@ -6,6 +6,8 @@ My Elixir solutions for the [Advent of Code 2020](http://adventofcode.com/2020).
 
 If you're curious how long each of my solutions roughly takes to run.
 
+You can check out the code yourself and run the benchmarks with `mix bench`!
+
 ```
 Name                    ips        average  deviation         median         99th %
 day 1, part 1        918.13        1.09 ms    ±12.99%        1.06 ms        1.56 ms
