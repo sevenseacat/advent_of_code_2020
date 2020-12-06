@@ -20,11 +20,24 @@ defmodule Day6 do
   end
 
   @doc """
-  iex> Day6.part2(:parsed_input)
-  :ok
+  iex> Day6.part2([[MapSet.new(["a"]), MapSet.new(["b"]), MapSet.new(["c"])],
+  ...>             [MapSet.new(["a", "b"]), MapSet.new(["a", "c"])]])
+  1
   """
-  def part2(_input) do
-    :ok
+  def part2(input) do
+    input
+    |> Stream.map(&count_common_answers/1)
+    |> Enum.sum()
+  end
+
+  defp count_common_answers([first | _rest] = group) do
+    first
+    |> MapSet.to_list()
+    |> Enum.count(fn answer ->
+      Enum.all?(group, fn person ->
+        MapSet.member?(person, answer)
+      end)
+    end)
   end
 
   @doc """
