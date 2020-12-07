@@ -25,5 +25,7 @@ defmodule AdventTest do
     test "day 5, part 2", do: assert(Day5.part2_verify() == 685)
     test "day 6, part 1", do: assert(Day6.part1_verify() == 6680)
     test "day 6, part 2", do: assert(Day6.part2_verify() == 3117)
+    test "day 7, part 1", do: assert(Day7.part1_verify() == 172)
+    test "day 7, part 2", do: assert(Day7.part2_verify() == 39645)
   end
 end
