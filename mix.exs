@@ -21,6 +21,7 @@ defmodule Advent.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:libgraph, "~> 0.13.3"},
       {:benchee, "~> 0.11", only: [:dev, :test]}
     ]
   end
