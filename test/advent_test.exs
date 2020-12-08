@@ -28,5 +28,7 @@ defmodule AdventTest do
     test "day 6, part 2", do: assert(Day6.part2_verify() == 3117)
     test "day 7, part 1", do: assert(Day7.part1_verify() == 172)
     test "day 7, part 2", do: assert(Day7.part2_verify() == 39645)
+    test "day 8, part 1", do: assert(Day8.part1_verify() == {:repeat, 1684})
+    test "day 8, part 2", do: assert(Day8.part2_verify() == {:exit, 2188})
   end
 end
