@@ -11,6 +11,7 @@ defmodule AdventTest do
   doctest Day6
   doctest Day7
   doctest Day8
+  doctest Day9
 
   # Real solutions from the real problems with real input.
   describe "verification" do
