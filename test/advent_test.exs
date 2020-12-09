@@ -31,5 +31,31 @@ defmodule AdventTest do
     test "day 7, part 2", do: assert(Day7.part2_verify() == 39645)
     test "day 8, part 1", do: assert(Day8.part1_verify() == {:repeat, 1684})
     test "day 8, part 2", do: assert(Day8.part2_verify() == {:exit, 2188})
+    test "day 9, part 1", do: assert(Day9.part1_verify() == 776_203_571)
+
+    test "day 9, part 2",
+      do:
+        assert(
+          Day9.part2_verify() ==
+            {[
+               27_369_156,
+               29_068_964,
+               37_160_073,
+               33_550_957,
+               36_146_876,
+               62_568_016,
+               47_164_749,
+               41_311_383,
+               44_778_259,
+               45_631_293,
+               39_027_246,
+               52_333_265,
+               55_938_995,
+               48_549_783,
+               50_321_666,
+               77_431_413,
+               47_851_477
+             ], 104_800_569}
+        )
   end
 end

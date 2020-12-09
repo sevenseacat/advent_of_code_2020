@@ -24,11 +24,34 @@ defmodule Day9 do
   end
 
   @doc """
-  iex> Day9.part2(:parsed_input)
-  :ok
+  iex> Day9.part2([35, 20, 15, 25, 47, 40, 62, 55, 65, 95, 102, 117, 150, 182,
+  ...>             127, 219, 299, 277, 309, 576], 5)
+  {[15, 25, 47, 40], 62}
   """
-  def part2(_input) do
-    :ok
+  def part2(input, preamble_length) do
+    invalid = part1(input, preamble_length)
+    list = find_invalid_sequence(input, invalid)
+    {min, max} = Enum.min_max(list)
+    {Enum.reverse(list), min + max}
+  end
+
+  defp find_invalid_sequence(input, invalid) do
+    {list, result} =
+      Enum.reduce_while(input, {[], 0}, fn x, {list, acc} ->
+        sum = x + acc
+
+        if sum < invalid do
+          {:cont, {[x | list], sum}}
+        else
+          {:halt, {[x | list], sum}}
+        end
+      end)
+
+    if result == invalid do
+      list
+    else
+      find_invalid_sequence(tl(input), invalid)
+    end
   end
 
   @doc """
@@ -46,6 +69,6 @@ defmodule Day9 do
   end
 
   def part2_verify do
-    Advent.data(9) |> parse_input |> part2
+    Advent.data(9) |> parse_input |> part2(25)
   end
 end
