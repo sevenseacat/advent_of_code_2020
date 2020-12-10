@@ -12,6 +12,7 @@ defmodule AdventTest do
   doctest Day7
   doctest Day8
   doctest Day9
+  doctest Day10
 
   # Real solutions from the real problems with real input.
   describe "verification" do
@@ -58,4 +59,6 @@ defmodule AdventTest do
              ], 104_800_569}
         )
   end
+
+  test "day 10, part 1", do: assert(Day10.part1_verify() == {66, 30})
 end
