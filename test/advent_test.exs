@@ -61,4 +61,5 @@ defmodule AdventTest do
   end
 
   test "day 10, part 1", do: assert(Day10.part1_verify() == {66, 30})
+  test "day 10, part 2", do: assert(Day10.part2_verify() == 4_628_074_479_616)
 end
