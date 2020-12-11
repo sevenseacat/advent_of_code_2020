@@ -63,6 +63,7 @@ defmodule AdventTest do
     test "day 10, part 1", do: assert(Day10.part1_verify() == {66, 30})
     test "day 10, part 2", do: assert(Day10.part2_verify() == 4_628_074_479_616)
     test "day 11, part 1", do: assert(Day11.part1_verify() == {2319, 74})
+    test "day 11, part 2", do: assert(Day11.part2_verify() == {2117, 87})
   end
 
   describe "day 11" do
@@ -71,20 +72,43 @@ defmodule AdventTest do
       assert result == {37, 5}
     end
 
-    test "run_round/1" do
+    test "part_2/1" do
+      result = Advent.test_data("11/initial") |> Day11.parse_input() |> Day11.part2()
+      assert result == {26, 6}
+    end
+
+    test "run_round/1 for part 1" do
       initial = Advent.test_data("11/initial") |> Day11.parse_input()
       round1 = Advent.test_data("11/round1") |> Day11.parse_input()
-      round2 = Advent.test_data("11/round2") |> Day11.parse_input()
-      round3 = Advent.test_data("11/round3") |> Day11.parse_input()
-      round4 = Advent.test_data("11/round4") |> Day11.parse_input()
-      round5 = Advent.test_data("11/round5") |> Day11.parse_input()
+      round2 = Advent.test_data("11/p1_round2") |> Day11.parse_input()
+      round3 = Advent.test_data("11/p1_round3") |> Day11.parse_input()
+      round4 = Advent.test_data("11/p1_round4") |> Day11.parse_input()
+      round5 = Advent.test_data("11/p1_round5") |> Day11.parse_input()
 
-      assert Day11.run_round(initial) == round1
-      assert Day11.run_round(round1) == round2
-      assert Day11.run_round(round2) == round3
-      assert Day11.run_round(round3) == round4
-      assert Day11.run_round(round4) == round5
-      assert Day11.run_round(round5) == round5
+      assert Day11.run_round(initial, 4, &Day11.neighbouring_seats/2) == round1
+      assert Day11.run_round(round1, 4, &Day11.neighbouring_seats/2) == round2
+      assert Day11.run_round(round2, 4, &Day11.neighbouring_seats/2) == round3
+      assert Day11.run_round(round3, 4, &Day11.neighbouring_seats/2) == round4
+      assert Day11.run_round(round4, 4, &Day11.neighbouring_seats/2) == round5
+      assert Day11.run_round(round5, 4, &Day11.neighbouring_seats/2) == round5
+    end
+
+    test "run_round/1 for part 2" do
+      initial = Advent.test_data("11/initial") |> Day11.parse_input()
+      round1 = Advent.test_data("11/round1") |> Day11.parse_input()
+      round2 = Advent.test_data("11/p2_round2") |> Day11.parse_input()
+      round3 = Advent.test_data("11/p2_round3") |> Day11.parse_input()
+      round4 = Advent.test_data("11/p2_round4") |> Day11.parse_input()
+      round5 = Advent.test_data("11/p2_round5") |> Day11.parse_input()
+      round6 = Advent.test_data("11/p2_round6") |> Day11.parse_input()
+
+      assert Day11.run_round(initial, 5, &Day11.line_of_sight_seats/2) == round1
+      assert Day11.run_round(round1, 5, &Day11.line_of_sight_seats/2) == round2
+      assert Day11.run_round(round2, 5, &Day11.line_of_sight_seats/2) == round3
+      assert Day11.run_round(round3, 5, &Day11.line_of_sight_seats/2) == round4
+      assert Day11.run_round(round4, 5, &Day11.line_of_sight_seats/2) == round5
+      assert Day11.run_round(round5, 5, &Day11.line_of_sight_seats/2) == round6
+      assert Day11.run_round(round6, 5, &Day11.line_of_sight_seats/2) == round6
     end
   end
 end
