@@ -1,6 +1,6 @@
 defmodule Advent do
   def data(day), do: File.read!("lib/data/day#{day}")
-  def test_data(name), do: File.read!("test/data/#{name}")
+  def test_data(name), do: File.read!("test/data/day#{name}")
 
   # http://www.petecorey.com/blog/2018/11/12/permutations-with-and-without-repetition-in-elixir/
   def permutations([], _), do: [[]]
