@@ -70,8 +70,8 @@ defmodule AdventTest do
       assert(Day12.part1_verify() == {%{facing: :south, x: -1256, y: 277}, 1533})
     end
 
-    test "day 12, part 1" do
-      assert(Day12.part1_verify() == {%{waypoint: %{x: 31, y: 3}, x: -17424, y: -7811}, 25235}
+    test "day 12, part 2" do
+      assert(Day12.part2_verify() == {%{waypoint: %{x: 31, y: 3}, x: -17424, y: -7811}, 25235})
     end
   end
 
